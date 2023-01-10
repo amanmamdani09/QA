@@ -1,0 +1,69 @@
+<?php
+
+   $i = 1;
+   $status_value = 1;
+   $storeId = $block->getStoreId();
+   $customerId = $block->getCustomerId();
+   $customerName = $block->getCustomerName();
+   $customerEmail = $block->getCustomerEmail();
+   $currentproduct = $block->getCurrentProduct();
+   $sku=$currentproduct->getSku();
+   $collections = $block->getTests();
+   
+   $c_attribute=$block->getCustomAttribute();
+   if ($c_attribute==1):
+   ?>
+<div>
+<label id="label">Recent Que/Ans</label>
+</div>
+<?php    
+   // echo "<pre>";
+   // print_r($collection);
+   // echo "</pre>";
+   // die;
+   foreach ($collections as $collection):
+       // if($collection->getUserId()==$customerId):
+       if($collection->getSku()==$sku):
+         if($collection->getStatus()==$status_value):
+       echo '<br/>';
+       echo $i++.". ";
+       echo $collection->getQuestion();
+       echo '<br/>'.'Answer: ';
+       echo $collection->getAnswer();
+           endif;
+        endif;
+       endforeach;
+   // endif;
+   ?>
+<style>
+   .div-class {
+   width: 50%;
+   padding: 15px;
+   }
+
+   #label {
+  font-size: 30px;
+   }
+</style>
+
+<form name="RegForm" method="post" id="RegForm" form class="RegForm" data-mage-init='{"validation": {}}' action="<?php echo $block->getBaseUrl().'faq/index/save';?>">
+   <div class="div-class">
+      <input type="hidden" name="user_id" id="user_id" value="<?php echo $customerId?>">
+      <input type="hidden" name="sku" id="sku" value="<?php echo $sku?>">
+      <input type="hidden" name="status" id="status" value="2">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<?php echo $customerName?>" data-validate="{required:true}">
+      <br></br>
+      <label for="email">Email</label>
+      <input type="text" name="email" value="<?php echo $customerEmail?>" data-validate="{required:true, 'validate-email':true}">
+      <br></br>
+      <label for="question">Question</label>
+      <textarea rows="3" cols="4" name="question" data-validate="{required:true}"></textarea>
+      <br></br>
+      <button type="submit" name="submit" onclick="return c_validation()">
+      <span>Submit Question</span>
+      </button>
+   </div>
+</form>
+<?php 
+   endif;

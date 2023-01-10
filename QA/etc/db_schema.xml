@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+   <table name="qa" resource="default" comment="QA">
+
+      <column xsi:type="int" name="id" identity="true" comment="ID"/>
+      <column xsi:type="int" name="user_id" comment="User ID"/>
+      <column xsi:type="varchar" name="name" length="255" comment="Name"/>
+      <column xsi:type="varchar" name="email" length="255" comment="Email"/>
+      <column xsi:type="varchar" name="question" length="255" comment="Questions"/>
+      <column xsi:type="varchar" name="sku" length="64" comment="SKU"/>
+      <column xsi:type="varchar" name="answer" length="255" comment="Answer"/>
+      <column xsi:type="varchar" name="status" length="255" comment="Status"/>
+
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id" />
+      </constraint>
+
+      <constraint xsi:type="foreign" referenceId="QA_SKU_CATALOG_PRODUCT_ENTITY_SKU" table="qa" column="sku" referenceTable="catalog_product_entity" referenceColumn="sku" onDelete="CASCADE"/>
+
+      <index referenceId="QA_ID" indexType="btree">
+         <column name="id"/>
+      </index>
+
+      <index referenceId="QA_NAME_EMAIL_SKU_QUE_ANS" indexType="fulltext">
+         <column name="name"/>
+         <column name="email"/>
+         <column name="sku"/>
+         <column name="question"/>
+         <column name="answer"/>
+      </index>
+      
+   </table>
+</schema>

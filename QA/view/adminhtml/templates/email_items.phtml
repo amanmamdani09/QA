@@ -1,0 +1,14 @@
+<?php
+$i = 1;
+$collections = $block->getCollection();
+   
+foreach ((array)$collections as $collection):
+	// if($collection->getData('id'):
+		echo '<br/>';
+		echo $i++.". ";
+        echo $collection->getQuestion();
+        echo '<br/>'.'Answer: ';
+        echo $collection->getAnswer();
+    // endif;
+endforeach;
+?>

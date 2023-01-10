@@ -1,0 +1,22 @@
+{
+    "qa": {
+        "column": {
+            "id": true,
+            "user_id": true,
+            "name": true,
+            "email": true,
+            "question": true,
+            "sku": true,
+            "answer": true,
+            "status": true
+        },
+        "index": {
+            "QA_ID": true,
+            "QA_NAME_EMAIL_SKU_QUESTION_ANSWER": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "QA_SKU_CATALOG_PRODUCT_ENTITY_SKU": true
+        }
+    }
+}

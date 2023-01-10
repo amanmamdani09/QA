@@ -1,0 +1,24 @@
+<config 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="qa1"
+              label="QA 1"
+              file="qa1.html"
+              type="html"
+              module="Brainvire_QA"
+              area="frontend"
+    />
+    <template id="qa2"
+              label="QA 2"
+              file="qa2.html"
+              type="html"
+              module="Brainvire_QA"
+              area="frontend"
+    />
+    <template id="qa3"
+              label="QA 3"
+              file="qa3.html"
+              type="html"
+              module="Brainvire_QA"
+              area="frontend"
+    />
+</config>

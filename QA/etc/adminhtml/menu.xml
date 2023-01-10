@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Brainvire_QA::QA" title="Q/A" module="Brainvire_QA" sortOrder="51" resource="Brainvire_QA::QA"/>
+        <add id="Brainvire_QA::post" title="Questions/Answers" module="Brainvire_QA" sortOrder="10" action="faq/post/index" resource="Brainvire_QA::post" parent="Brainvire_QA::QA"/>
+    </menu>
+</config>
